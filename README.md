@@ -1,1 +1,1 @@
-# assembly-x8086-demo
+# assembly-x86-demo
