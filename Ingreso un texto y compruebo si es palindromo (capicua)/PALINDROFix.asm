@@ -1,0 +1,60 @@
+;INGRESO UN TEXTO Y VEO SI ES CAPICUA ES DECIR PALINDROMO;
+
+.8086
+.model small
+.stack 100H
+.data
+CARTEL DB "INGRESE TEXTO: ",10,13, '$'
+NOES DB "NO ES PALINDROMO ",10,13, '$'
+TEXTO DB 51 DUP ('$')
+Compara db 51 dup ('$')
+ESPAL DB "ES PALINDROMO ",10,13, '$'
+
+.CODE
+MAIN PROC
+	MOV AX,@DATA
+	MOV DS,AX
+	
+	MOV AH,9
+	MOV DX, OFFSET CARTEL
+	INT 21H
+	MOV BX, 0 ; Estaba inicializado en la pos 48
+	mov cx,50
+CICLO:
+	MOV AH, 1
+	INT 21H
+	CMP AL, 13
+	JE SIGO
+	MOV TEXTO [BX],AL
+	INC BX        	
+	loop ciclo
+SIGO:
+	DEC BX
+	MOV DI, 0            
+RECO:
+	MOV AL, TEXTO [DI]
+	CMP AL, TEXTO [BX]
+	JnE nopes
+	INC DI
+	DEC BX
+	CMP BX,DI
+	JlE sies
+	JMP RECO
+NOPES:
+	MOV AH,9
+	MOV DX, OFFSET NOES
+	INT 21H
+	JMP FIN
+SIES:
+	MOV AH,9
+	MOV DX, OFFSET ESPAL
+	INT 21H
+FIN:
+	MOV AX,4C00H
+	INT 21H	
+ENDP
+END MAIN	
+	
+	
+	
+	

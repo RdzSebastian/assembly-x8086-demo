@@ -1,0 +1,32 @@
+CIFRADOR
+
+mensaje: 
+hola como estas
+
+inverso: 
+satse omoc aloh
+
+
+cambio "ingreses" por "-": 
+s-tse omoc -loh
+
+
+le sumo 0011
+v0wvh#rprf#0ork
+
+
+
+Descifrador
+
+mensaje: 
+v0wvh#rprf#0ork
+
+inverso: 
+kro0#frpr#hvw0v
+
+
+le resto 0011
+s-tse omoc -loh
+
+cambio "ingrese" por "a": 
+hola como estas
